@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module LogParser
   module Core
     LOG_LINE_REGEX = /(\S*)\s([0-9.]+)/

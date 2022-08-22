@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require './log_parser/input_validator'
 require './log_parser/core'

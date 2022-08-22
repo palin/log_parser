@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.context 'LogParser - integration' do
   context 'full execution with valid input' do
     let(:executable) { './log_parser.rb' }

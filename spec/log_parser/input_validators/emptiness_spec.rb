@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../log_parser/input_validators/emptiness'
 
 RSpec.describe LogParser::InputValidators::Emptiness do

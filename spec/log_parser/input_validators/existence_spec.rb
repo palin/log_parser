@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../log_parser/input_validators/existence'
 
 RSpec.describe LogParser::InputValidators::Existence do
