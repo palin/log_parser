@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-require "./log_parser/input_validator"
-require "./log_parser/core"
-require "./log_parser/printer"
+require './log_parser/input_validator'
+require './log_parser/core'
+require './log_parser/printer'
 
 module LogParser
   def self.run

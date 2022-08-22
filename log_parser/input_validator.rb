@@ -1,11 +1,11 @@
-require_relative "input_validators/existence"
-require_relative "input_validators/emptiness"
+require_relative 'input_validators/existence'
+require_relative 'input_validators/emptiness'
 
 module LogParser
   module InputValidator
     VALIDATORS = [
       LogParser::InputValidators::Existence,
-      LogParser::InputValidators::Emptiness,
+      LogParser::InputValidators::Emptiness
     ]
 
     def self.run(filename)

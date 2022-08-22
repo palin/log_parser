@@ -1,11 +1,11 @@
-require_relative "../../log_parser/core"
+require_relative '../../log_parser/core'
 
 RSpec.describe LogParser::Core do
-  describe ".run" do
-    let(:test_log_file_path) { "log_#{Time.now.to_i}.log"}
+  describe '.run' do
+    let(:test_log_file_path) { "log_#{Time.now.to_i}.log" }
 
     before do
-      File.open(test_log_file_path, "w+") { |file| file.write(log_content) }
+      File.open(test_log_file_path, 'w+') { |file| file.write(log_content) }
     end
 
     after do
@@ -14,26 +14,26 @@ RSpec.describe LogParser::Core do
 
     subject { described_class.run(test_log_file_path) }
 
-    context "log with single page" do
+    context 'log with single page' do
       let(:log_content) do
-        "/help_page/1 126.318.035.038"
+        '/help_page/1 126.318.035.038'
       end
 
-      it "returns hash with a single result" do
+      it 'returns hash with a single result' do
         expect(subject).to eq(
           {
             regular: [
-              ["/help_page/1", 1],
+              ['/help_page/1', 1]
             ],
             unique: [
-              ["/help_page/1", 1],
+              ['/help_page/1', 1]
             ]
           }
         )
       end
     end
 
-    context "log with many pages" do
+    context 'log with many pages' do
       let(:log_content) do
         "/help_page/1 126.318.035.038
         /contact 184.123.665.067
@@ -74,24 +74,24 @@ RSpec.describe LogParser::Core do
         /about 715.156.286.412"
       end
 
-      it "creates an array of hashes with parsed results" do
+      it 'creates an array of hashes with parsed results' do
         expect(subject).to eq(
           {
             regular: [
-              ["/help_page/1", 8],
-              ["/contact", 7],
-              ["/about", 6],
-              ["/about/2", 6],
-              ["/home", 6],
-              ["/index", 4],
+              ['/help_page/1', 8],
+              ['/contact', 7],
+              ['/about', 6],
+              ['/about/2', 6],
+              ['/home', 6],
+              ['/index', 4]
             ],
             unique: [
-              ["/about", 6],
-              ["/contact", 6],
-              ["/help_page/1", 6],
-              ["/about/2", 5],
-              ["/home", 5],
-              ["/index", 4],
+              ['/about', 6],
+              ['/contact', 6],
+              ['/help_page/1', 6],
+              ['/about/2', 5],
+              ['/home', 5],
+              ['/index', 4]
             ]
           }
         )

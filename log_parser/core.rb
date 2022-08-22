@@ -1,19 +1,17 @@
 module LogParser
   module Core
-    LOG_LINE_REGEX = /(\S*)\s([0-9\.]+)/.freeze
+    LOG_LINE_REGEX = /(\S*)\s([0-9.]+)/
 
     def self.run(filename)
       results = prepare_general_results(filename)
       build_for_output(results)
     end
 
-    private
-
     def self.prepare_general_results(filename)
       results = {}
 
       File.readlines(filename, chomp: true).each do |line|
-        result = line.strip.split(" ")
+        result = line.strip.split(' ')
         page = result[0]
         ip = result[1]
         results[page] ||= { regular: 0, unique: 0, unique_ips: [] }
@@ -27,7 +25,7 @@ module LogParser
           unique_ips = results[page][:unique_ips] << ip
         end
 
-        results[page] = { regular: regular, unique: unique, unique_ips: unique_ips }
+        results[page] = { regular:, unique:, unique_ips: }
       end
 
       results
@@ -36,12 +34,12 @@ module LogParser
     def self.build_for_output(results)
       {
         regular: build_results_for_type(results, :regular),
-        unique: build_results_for_type(results, :unique),
+        unique: build_results_for_type(results, :unique)
       }
     end
 
     def self.sort_results_for_type(results, type)
-      results.sort_by { |k, v| v[type] }.reverse!
+      results.sort_by { |_k, v| v[type] }.reverse!
     end
 
     def self.build_results_for_type(results, type)

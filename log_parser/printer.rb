@@ -5,7 +5,7 @@ module LogParser
     end
 
     def separator
-      line("---")
+      line('---')
     end
 
     def result(page, text)
@@ -32,12 +32,12 @@ module LogParser
 
     def self.summary(filename, results)
       file_info(filename)
-      section_header("Most page views (desc):")
+      section_header('Most page views (desc):')
       results[:regular].each do |page_summary|
         result(page_summary.first, "#{page_summary.last} views")
       end
 
-      section_header("Most unique page views (desc):")
+      section_header('Most unique page views (desc):')
       results[:unique].each do |page_summary|
         result(page_summary.first, "#{page_summary.last} unique views")
       end
