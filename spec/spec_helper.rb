@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
-require "helpers/test_helper"
+require './log_parser/validator'
+require './log_parser/core'
+require './log_parser/printer'
+require './log_parser/input_validators/existence'
+require './log_parser/input_validators/emptiness'
+require 'helpers/test_helper'
 include TestHelper
 
 RSpec.configure do |config|

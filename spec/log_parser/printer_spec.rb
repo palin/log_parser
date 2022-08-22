@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../log_parser/printer'
-
-RSpec.describe LogParser::Printer do
+describe LogParser::Printer do
   describe '.summary' do
     let(:filename) { 'example.log' }
     let(:results) do

@@ -1,21 +1,15 @@
 # frozen_string_literal: true
 
-require_relative '../../../log_parser/input_validators/emptiness'
-
-RSpec.describe LogParser::InputValidators::Emptiness do
+describe LogParser::InputValidators::Emptiness do
   describe '.check' do
     subject { described_class.check(log_file_path) }
 
     context 'file is empty' do
       let(:log_file_path) { "log_#{Time.now.to_i}.log" }
 
-      before do
-        create_file(log_file_path, '')
-      end
+      before { create_file(log_file_path, '') }
 
-      after do
-        delete_file(log_file_path)
-      end
+      after { delete_file(log_file_path) }
 
       it 'throws an exception' do
         expect { subject }.to raise_error(StandardError)

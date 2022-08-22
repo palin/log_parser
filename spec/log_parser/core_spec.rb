@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../log_parser/core'
-
-RSpec.describe LogParser::Core do
+describe LogParser::Core do
   describe '.run' do
     let(:log_file_path) { "log_#{Time.now.to_i}.log" }
 

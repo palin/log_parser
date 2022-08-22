@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../log_parser/input_validator'
-
-RSpec.describe LogParser::InputValidator do
+describe LogParser::Validator do
   describe '.run' do
     let(:filename) { 'example.log' }
 

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'input_validators/existence'
-require_relative 'input_validators/emptiness'
-
 module LogParser
-  module InputValidator
+  module Validator
+    require './log_parser/input_validators/existence'
+    require './log_parser/input_validators/emptiness'
+
     VALIDATORS = [
       LogParser::InputValidators::Existence,
       LogParser::InputValidators::Emptiness

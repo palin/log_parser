@@ -2,11 +2,9 @@
 
 module LogParser
   module Core
-    LOG_LINE_REGEX = /(\S*)\s([0-9.]+)/
-
     def self.run(filename)
       results = prepare_general_results(filename)
-      build_for_output(results)
+      build_output_for_printing(results)
     end
 
     def self.prepare_general_results(filename)
@@ -33,7 +31,7 @@ module LogParser
       results
     end
 
-    def self.build_for_output(results)
+    def self.build_output_for_printing(results)
       {
         regular: build_results_for_type(results, :regular),
         unique: build_results_for_type(results, :unique)
