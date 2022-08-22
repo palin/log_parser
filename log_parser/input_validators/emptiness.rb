@@ -9,8 +9,6 @@ module LogParser
         if FileTest.zero?(filename)
           printer.error_message('The file is empty!')
           raise
-        else
-          File.open(filename, 'r+')
         end
       end
     end

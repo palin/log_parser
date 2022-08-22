@@ -10,15 +10,20 @@ RSpec.describe LogParser::InputValidators::Existence do
       let(:file) { 'blah.log' }
 
       it 'throws an exception' do
-        expect { subject }.to raise_error(Errno::ENOENT)
+        expect { subject }.to raise_error(StandardError)
+      end
+
+      it 'calls for printer' do
+        expect(LogParser::Printer).to receive(:error_message).with("The file doesn't exist!").once
+        subject rescue StandardError
       end
     end
 
     context 'file exists' do
       let(:file) { './logs/webserver.log' }
 
-      it 'returns an instance of a File' do
-        expect(subject).to be_kind_of(File)
+      it "doesn't throw any exception" do
+        expect { subject }.not_to raise_error
       end
     end
   end
