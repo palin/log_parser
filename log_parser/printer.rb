@@ -27,30 +27,19 @@ module LogParser
     end
   end
 
-  # module ResultSection
-  #   extend Detail
-
-  #   def result_section(header, page_text)
-  #     section_header(header)
-  #     pages.each do |page_summary|
-  #       result(page_summary[:page], "#{page_summary[:views_count]} views")
-  #     end
-  #   end
-  # end
-
   module Printer
     extend Detail
 
-    def self.summary(filename, pages)
+    def self.summary(filename, results)
       file_info(filename)
       section_header("Most page views (desc):")
-      pages.each do |page_summary|
-        result(page_summary[:page], "#{page_summary[:views_count]} views")
+      results[:regular].each do |page_summary|
+        result(page_summary.first, "#{page_summary.last} views")
       end
 
       section_header("Most unique page views (desc):")
-      pages.each do |page_summary|
-        result(page_summary[:page], "#{page_summary[:unique_views_count]} unique views")
+      results[:unique].each do |page_summary|
+        result(page_summary.first, "#{page_summary.last} unique views")
       end
     end
 

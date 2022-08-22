@@ -8,7 +8,7 @@ RSpec.describe LogParser::InputValidators::Emptiness do
       let(:file) { "log_#{Time.now.to_i}.log"}
 
       before do
-        File.open(file, "w+")
+        File.open(file, "w+") { |f| f.write("") }
       end
 
       after do
