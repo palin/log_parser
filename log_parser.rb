@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-
+# Main module of the script
 module LogParser
   require './log_parser/validator'
   require './log_parser/core'

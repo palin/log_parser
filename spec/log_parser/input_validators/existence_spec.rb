@@ -13,7 +13,11 @@ describe LogParser::InputValidators::Existence do
 
       it 'calls for printer' do
         expect(LogParser::Printer).to receive(:error_message).with("The file doesn't exist!").once
-        subject rescue StandardError
+        begin
+          subject
+        rescue StandardError
+          StandardError
+        end
       end
     end
 

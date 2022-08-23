@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TestHelper
   def log_lines_example
     "/help_page/1 126.318.035.038

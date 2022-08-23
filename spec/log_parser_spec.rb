@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 context 'LogParser - integration' do
+  include TestHelper
+
   context 'full execution with valid input' do
     let(:executable) { './log_parser.rb' }
     let(:log_file_path) { "log_#{Time.now.to_i}.log" }

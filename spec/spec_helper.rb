@@ -5,8 +5,7 @@ require './log_parser/core'
 require './log_parser/printer'
 require './log_parser/input_validators/existence'
 require './log_parser/input_validators/emptiness'
-require 'helpers/test_helper'
-include TestHelper
+require './spec/helpers/test_helper'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

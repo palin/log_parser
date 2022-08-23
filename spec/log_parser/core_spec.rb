@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 describe LogParser::Core do
+  include TestHelper
+
   describe '.run' do
     let(:log_file_path) { "log_#{Time.now.to_i}.log" }
 

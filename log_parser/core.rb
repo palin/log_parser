@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module LogParser
+  # Parses a log file and returns a hash
   module Core
     def self.run(filename)
       results = prepare_general_results(filename)
@@ -15,8 +16,8 @@ module LogParser
         page = result[0]
         ip = result[1]
         results[page] ||= { regular: 0, unique: 0, unique_ips: [] }
+        regular = results[page][:regular] + 1
 
-        regular = results.dig(page, :regular) + 1
         if results[page][:unique_ips].include?(ip)
           unique = results[page][:unique]
           unique_ips = results[page][:unique_ips]

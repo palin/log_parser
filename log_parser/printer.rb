@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module LogParser
+  # Helper module for Printer
   module Detail
     def line(content)
       puts(content)
@@ -29,6 +30,7 @@ module LogParser
     end
   end
 
+  # Responsible for printing in stdout
   module Printer
     extend Detail
 

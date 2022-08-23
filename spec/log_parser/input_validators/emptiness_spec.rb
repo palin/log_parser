@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 describe LogParser::InputValidators::Emptiness do
+  include TestHelper
+
   describe '.check' do
     subject { described_class.check(log_file_path) }
 
@@ -17,7 +19,11 @@ describe LogParser::InputValidators::Emptiness do
 
       it 'calls for printer' do
         expect(LogParser::Printer).to receive(:error_message).with('The file is empty!').once
-        subject rescue StandardError
+        begin
+          subject
+        rescue StandardError
+          StandardError
+        end
       end
     end
 
