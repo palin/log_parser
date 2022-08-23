@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe LogParser::Printer do
-  describe '.summary' do
+  describe '.run' do
     let(:filename) { 'example.log' }
     let(:results) do
       {
@@ -24,7 +24,7 @@ describe LogParser::Printer do
       }
     end
 
-    subject { described_class.summary(filename, results) }
+    subject { described_class.run(filename, results) }
 
     it 'prints summary in a human-readable way' do
       expect { subject }.to output(

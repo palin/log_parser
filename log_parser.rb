@@ -11,7 +11,7 @@ module LogParser
     filename = ARGV[0]
     Validator.run(filename)
     results = Core.run(filename)
-    Printer.summary(filename, results)
+    Printer.run(filename, results)
   end
 end
 

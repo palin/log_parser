@@ -2,7 +2,7 @@
 
 module LogParser
   # Helper module for Printer
-  module Detail
+  module Drawings
     def line(content)
       puts(content)
     end
@@ -32,9 +32,9 @@ module LogParser
 
   # Responsible for printing in stdout
   module Printer
-    extend Detail
+    extend Drawings
 
-    def self.summary(filename, results)
+    def self.run(filename, results)
       file_info(filename)
       section_header('Most page views (desc):')
       results[:regular].each do |page_summary|
