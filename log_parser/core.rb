@@ -39,16 +39,13 @@ module LogParser
     end
 
     def self.prepare_general_results(filename)
-      results = {}
-
-      File.readlines(filename, chomp: true).each do |line|
+      File.readlines(filename, chomp: true).each_with_object({}) do |line, results|
         log_line = LogLine.new(line)
+
         results[log_line.page] ||= SinglePageInfo.new
         results[log_line.page].add_regular_visit
         results[log_line.page].add_unique_visit(log_line.ip)
       end
-
-      results
     end
 
     def self.build_output_for_printing(results)
