@@ -34,16 +34,24 @@ module LogParser
   module Printer
     extend Drawings
 
+    SECTIONS = {
+      regular: {
+        title: 'Most page views (desc):',
+        type: 'views'
+      },
+      unique: {
+        title: 'Most unique page views (desc):',
+        type: 'unique views'
+      }
+    }
+
     def self.run(filename, results)
       file_info(filename)
-      section_header('Most page views (desc):')
-      results[:regular].each do |page_summary|
-        result(page_summary.first, "#{page_summary.last} views")
-      end
-
-      section_header('Most unique page views (desc):')
-      results[:unique].each do |page_summary|
-        result(page_summary.first, "#{page_summary.last} unique views")
+      SECTIONS.each do |section_type, copies|
+        section_header(copies[:title])
+        results[section_type].each do |page_summary|
+          result(page_summary.first, "#{page_summary.last} #{copies[:type]}")
+        end
       end
     end
 
