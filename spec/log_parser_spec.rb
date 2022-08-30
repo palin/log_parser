@@ -4,7 +4,7 @@ context 'LogParser - integration' do
   include TestHelper
 
   context 'full execution with valid input' do
-    let(:executable) { './log_parser.rb' }
+    let(:executable) { './parser' }
     let(:log_file_path) { "log_#{Time.now.to_i}.log" }
     let(:log_content) { log_lines_example }
 

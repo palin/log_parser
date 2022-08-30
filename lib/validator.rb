@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 module LogParser
+  require './lib/validator/existence'
+  require './lib/validator/emptiness'
+
   # Checks if the log file can be parsed
   module Validator
-    require './log_parser/input_validators/existence'
-    require './log_parser/input_validators/emptiness'
-
     VALIDATORS = [
-      LogParser::InputValidators::Existence,
-      LogParser::InputValidators::Emptiness
+      LogParser::Validator::Existence,
+      LogParser::Validator::Emptiness
     ].freeze
 
     def self.run(filename)

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe LogParser::InputValidators::Existence do
+describe LogParser::Validator::Existence do
   describe '.check' do
     subject { described_class.check(file) }
 

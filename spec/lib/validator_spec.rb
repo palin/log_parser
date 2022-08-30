@@ -9,8 +9,8 @@ describe LogParser::Validator do
     context 'invalid file' do
       context "file doesn't exist" do
         before do
-          allow(LogParser::InputValidators::Existence).to receive(:check).and_raise(StandardError.new('no file!'))
-          allow(LogParser::InputValidators::Emptiness).to receive(:check).and_return(true)
+          allow(LogParser::Validator::Existence).to receive(:check).and_raise(StandardError.new('no file!'))
+          allow(LogParser::Validator::Emptiness).to receive(:check).and_return(true)
         end
 
         it 'raises an error' do
@@ -20,8 +20,8 @@ describe LogParser::Validator do
 
       context 'file is empty' do
         before do
-          allow(LogParser::InputValidators::Existence).to receive(:check).and_return(true)
-          allow(LogParser::InputValidators::Emptiness).to receive(:check).and_raise(StandardError.new('empty!'))
+          allow(LogParser::Validator::Existence).to receive(:check).and_return(true)
+          allow(LogParser::Validator::Emptiness).to receive(:check).and_raise(StandardError.new('empty!'))
         end
 
         it 'raises an error' do
@@ -32,8 +32,8 @@ describe LogParser::Validator do
 
     context 'valid file' do
       before do
-        allow(LogParser::InputValidators::Existence).to receive(:check).and_return(true)
-        allow(LogParser::InputValidators::Emptiness).to receive(:check).and_return(true)
+        allow(LogParser::Validator::Existence).to receive(:check).and_return(true)
+        allow(LogParser::Validator::Emptiness).to receive(:check).and_return(true)
       end
 
       it "doesn't raise errors" do

@@ -3,9 +3,9 @@
 
 # Main module of the script
 module LogParser
-  require './log_parser/validator'
-  require './log_parser/core'
-  require './log_parser/printer'
+  require './lib/validator'
+  require './lib/core'
+  require './lib/printer'
 
   def self.run
     filename = ARGV[0]

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module LogParser
-  module InputValidators
+  module Validator
     # Checks if a log file has any content
     module Emptiness
       def self.check(filename, printer: ::LogParser::Printer)

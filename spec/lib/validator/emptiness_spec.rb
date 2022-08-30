@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe LogParser::InputValidators::Emptiness do
+describe LogParser::Validator::Emptiness do
   include TestHelper
 
   describe '.check' do
