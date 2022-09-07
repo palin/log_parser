@@ -4,7 +4,7 @@
 
 The parser was written using Ruby 3.1.1. The parser accepts a log file name as argument, I used the one provided - `logs/webserver.log`
 
-To run the script: `./log_parser.rb logs/webserver.log`
+To run the script: `./parser logs/webserver.log`
 
 ## Running tests
 

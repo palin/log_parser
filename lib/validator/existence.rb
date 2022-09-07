@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module LogParser
-  module InputValidators
+  module Validator
     # Checks if a log file exists
     module Existence
       def self.check(filename, printer: ::LogParser::Printer)

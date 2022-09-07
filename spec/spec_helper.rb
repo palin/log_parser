@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require './log_parser/validator'
-require './log_parser/core'
-require './log_parser/printer'
-require './log_parser/input_validators/existence'
-require './log_parser/input_validators/emptiness'
+require './lib/validator'
+require './lib/core'
+require './lib/printer'
+require './lib/validator/existence'
+require './lib/validator/emptiness'
 require './spec/helpers/test_helper'
 
 RSpec.configure do |config|
